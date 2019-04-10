@@ -18,7 +18,7 @@ module.exports = {
     },
     resolve(source, args) {
         return models.Categoria
-            .findById(args.id)
+            .findByPk(args.id)
             .then((categoria) => {
                 return categoria.update(args.categoria);
             });

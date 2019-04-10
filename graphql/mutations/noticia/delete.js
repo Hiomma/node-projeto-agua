@@ -14,9 +14,9 @@ module.exports = {
     },
     resolve(source, args) {
         return models.Noticia
-            .findById(args.id)
+            .findByPk(args.id)
             .then((noticia) => {
-                return noticia.update({ deletado: true });
+                return noticia.update({ ativado: false });
             });
     }
 };

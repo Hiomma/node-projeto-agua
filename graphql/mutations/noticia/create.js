@@ -14,10 +14,10 @@ module.exports = {
             titulo: args.noticia.titulo,
             manchete: args.noticia.manchete,
             texto: args.noticia.texto,
-            posicao: args.noticia.posicao,
             imagem: args.noticia.imagem,
             ativado: args.noticia.ativado,
-            categoria: args.noticia.categoria,
+            posicao_id: args.noticia.posicao_id,
+            categoria_id: args.noticia.categoria_id,
             url: args.noticia.url
         }).save().then(function (newNoticia) {
             return models.Noticia.findByPk(newNoticia.id);

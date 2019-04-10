@@ -2,11 +2,9 @@ const {
     GraphQLInputObjectType,
     GraphQLString,
     GraphQLNonNull,
-    GraphQLBoolean
+    GraphQLBoolean,
+    GraphQLID
 } = require('graphql');
-
-const { PosicaoInput } = require("../inputs/posicao");
-const { CategoriaInput } = require("../inputs/categoria")
 
 module.exports = new GraphQLInputObjectType({
     name: 'NoticiaInput',
@@ -14,10 +12,10 @@ module.exports = new GraphQLInputObjectType({
         titulo: { type: GraphQLNonNull(GraphQLString) },
         manchete: { type: GraphQLNonNull(GraphQLString) },
         texto: { type: GraphQLNonNull(GraphQLString) },
-        posicao: { type: PosicaoInput },
+        posicao_id: { type: GraphQLNonNull(GraphQLID) },
         imagem: { type: GraphQLNonNull(GraphQLString) },
         ativado: { type: GraphQLNonNull(GraphQLBoolean) },
-        categoria: { type: CategoriaInput },
+        categoria_id: { type: GraphQLNonNull(GraphQLID) },
         url: { type: GraphQLNonNull(GraphQLString) }
     })
 });

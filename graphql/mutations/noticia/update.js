@@ -18,7 +18,7 @@ module.exports = {
     },
     resolve(source, args) {
         return models.Noticia
-            .findById(args.id)
+            .findByPk(args.id)
             .then((noticia) => {
                 return noticia.update(args.noticia);
             });

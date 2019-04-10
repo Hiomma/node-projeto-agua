@@ -3,20 +3,20 @@ const {
     GraphQLNonNull
 } = require('graphql');
 const models = require('../../../models/index.js');
-const Categoria = require('../../types/categoria.js');
+const Posicao = require('../../types/posicao.js');
 
 module.exports = {
-    type: Categoria,
+    type: Posicao,
     args: {
         id: {
             type: new GraphQLNonNull(GraphQLInt)
         }
     },
     resolve(source, args) {
-        return models.Categoria
-            .findById(args.id)
-            .then((categoria) => {
-                return categoria.update({ deletado: true });
+        return models.Posicao
+            .findByPk(args.id)
+            .then((posicao) => {
+                return posicao.update({ ativado: false });
             });
     }
 };

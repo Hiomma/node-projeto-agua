@@ -1,20 +1,20 @@
 const models = require('../../../models/index.js');
-const Categoria = require('../../types/categoria.js');
-const CategoriaInput = require('../../inputs/categoria.js');
+const Posicao = require('../../types/posicao.js');
+const PosicaoInput = require('../../inputs/posicao.js');
 
 module.exports = {
-    type: Categoria,
+    type: Posicao,
     args: {
-        categoria: {
-            type: CategoriaInput
+        posicao: {
+            type: PosicaoInput
         }
     },
     resolve(source, args) {
-        return models.Categoria.build({
-            nome: args.categoria.nome,
-            ativado: args.categoria.ativado
-        }).save().then(function (newCategoria) {
-            return models.Categoria.findByPk(newCategoria.id);
+        return models.Posicao.build({
+            nome: args.posicao.nome,
+            ativado: args.posicao.ativado
+        }).save().then(function (newPosicao) {
+            return models.Posicao.findByPk(newPosicao.id);
         });
     }
 };

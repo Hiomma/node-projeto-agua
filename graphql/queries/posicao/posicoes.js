@@ -10,9 +10,9 @@ const Posicao = require('../../types/posicao.js');
 module.exports = {
     type: new GraphQLList(Posicao),
     args: {
-        deletado: {
+        ativado: {
             type: GraphQLBoolean,
-            description: "Caso TRUE, retornará apenas os deletados, caso FALSE, retornará os não deletados, vazio retornará todos"
+            description: "Caso TRUE, retornará apenas os ativadaos, caso FALSE, retornará os não ativados, vazio retornará todos"
         },
         first: {
             type: GraphQLInt,
