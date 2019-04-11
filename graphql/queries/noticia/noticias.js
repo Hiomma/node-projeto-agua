@@ -2,14 +2,21 @@ const {
     GraphQLList,
     GraphQLBoolean,
     GraphQLInt,
+    GraphQLString
 } = require('graphql');
 
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 const models = require('../../../models/index.js');
 const Noticia = require('../../types/noticia.js');
 
 module.exports = {
     type: new GraphQLList(Noticia),
     args: {
+        filter: {
+            type: GraphQLString,
+            description: "Filtre pelas palavras chaves do conteúdo da tabela!"
+        },
         ativado: {
             type: GraphQLBoolean,
             description: "Caso TRUE, retornará apenas os ativadaos, caso FALSE, retornará os não ativados, vazio retornará todos"
@@ -25,8 +32,27 @@ module.exports = {
     resolve(root, args) {
         const offset = args.offset || 0;
         const limit = args.first || 10;
+
+        if (args.filter) {
+            let aux = args;
+
+            args = {
+                [Op.or]: {
+                    titulo: { [Op.like]: "%" + args.filter + "%" },
+                    manchete: { [Op.like]: "%" + args.filter + "%" },
+                    texto: { [Op.like]: "%" + args.filter + "%" },
+                    url: { [Op.like]: "%" + args.filter + "%" },
+                }
+            }
+
+            if (args.ativado == true || args.ativado == false) {
+                args.ativado = aux;
+            }
+        }
+
         delete args.offset;
         delete args.first;
-        return models.Noticia.findAll({ where: args, offset, limit });
+        delete args.filter;
+        return models.Noticia.findAll({ where: args, offset, limit }).catch((error) => console.log(error));
     }
 };
