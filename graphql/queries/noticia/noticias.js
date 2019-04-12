@@ -45,8 +45,8 @@ module.exports = {
                 }
             }
 
-            if (args.ativado == true || args.ativado == false) {
-                args.ativado = aux;
+            if (aux.ativado == true || aux.ativado == false) {
+                args.ativado = aux.ativado;
             }
         }
 
