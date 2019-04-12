@@ -7,6 +7,7 @@
         "dialect": "mysql"
     },
     "development": {
+        "use_env_variable": "DATABASE_URL",
         "username": "ejrgxwwoipujpl",
         "password": "80ef52f391cf59f7a6dd0ad1cf86199fe2b36b5754051749f1cd8d7afd857a0d",
         "database": "dh1rktslaf96p",
