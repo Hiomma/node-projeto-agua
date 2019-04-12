@@ -29,14 +29,14 @@ module.exports = {
             categoria_id: {
                 type: Sequelize.INTEGER,
                 references: {
-                    model: "categorias",
+                    model: "Categorias",
                     key: "id"
                 }
             },
             posicao_id: {
                 type: Sequelize.INTEGER,
                 references: {
-                    model: "posicoes",
+                    model: "Posicoes",
                     key: "id"
                 }
             },
