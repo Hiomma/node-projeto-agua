@@ -1,17 +1,13 @@
 {
-    "development2": {
+    "development": {
         "username": "root",
         "password": null,
         "database": "cimef",
         "host": "127.0.0.1",
         "dialect": "mysql"
     },
-    "development": {
+    "production": {
         "use_env_variable": "DATABASE_URL",
-        "username": "ejrgxwwoipujpl",
-        "password": "80ef52f391cf59f7a6dd0ad1cf86199fe2b36b5754051749f1cd8d7afd857a0d",
-        "database": "dh1rktslaf96p",
-        "host": "ec2-23-23-92-204.compute-1.amazonaws.com",
         "dialect": "postgres",
         "dialectOptions": {
             "ssl": true

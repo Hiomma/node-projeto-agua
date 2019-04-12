@@ -19,6 +19,7 @@ npm-debug.log*
 .sass-cache/
 .tmp/
 .versions/
+.env
 coverage/
 www/
 node_modules/
