@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
     up: (queryInterface, Sequelize) => {
-        return queryInterface.createTable('Noticias', {
+        return queryInterface.createTable('noticias', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
@@ -29,14 +29,14 @@ module.exports = {
             categoria_id: {
                 type: Sequelize.INTEGER,
                 references: {
-                    model: "Categorias",
+                    model: "categorias",
                     key: "id"
                 }
             },
             posicao_id: {
                 type: Sequelize.INTEGER,
                 references: {
-                    model: "Posicoes",
+                    model: "posicoes",
                     key: "id"
                 }
             },
@@ -51,6 +51,6 @@ module.exports = {
         });
     },
     down: (queryInterface, Sequelize) => {
-        return queryInterface.dropTable('Noticias');
+        return queryInterface.dropTable('noticias');
     }
 };
