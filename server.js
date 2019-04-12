@@ -24,7 +24,7 @@ app.use('/graphql',
 
 app.use('/graphql1',
     // auth,
-    express_graphql({ schema: Schema, pretty: true, graphiql: true }))
+    express_graphql({ schema: Schema, pretty: true, graphiql: false }))
 
 
 
