@@ -14,22 +14,22 @@ function loginController() {
     return router;
 
     async function login(req, res) {
-        models.Users.findOne({
-            where: { login: req.body.login }
+        models.Usuario.findOne({
+            where: { email: req.body.email }
         }).then(async data => {
             if (!data) {
-                res.status(401).json("Login e senha errados!")
+                res.status(401).json({ message: "Login e senha errados!" })
             } else {
-                if (md5(req.body.senha) == data.password) {
-                    jwt.sign({ user: data.username }, retornarSecretKey, { expiresIn: '24h' }, (err, token) => {
+                if (md5(req.body.password) == data.password) {
+                    jwt.sign({ user: data.email }, retornarSecretKey, { expiresIn: '24h' }, (err, token) => {
                         res.json({
                             id: data.id,
-                            user: data.username,
+                            user: data.email,
                             token: token
                         })
                     });
                 } else {
-                    res.status(401).json(respostaPadrao(false, {}, "Login e senha errados!", 401))
+                    res.status(401).json({ message: "Login e senha errados!" });
                 }
             }
         })

@@ -5,6 +5,9 @@ const {
 const models = require('../../../models/index.js');
 const Categoria = require('../../types/categoria.js');
 
+
+const auth = require("../../../services/auth.graphql");
+
 module.exports = {
     type: Categoria,
     args: {
@@ -12,11 +15,15 @@ module.exports = {
             type: new GraphQLNonNull(GraphQLInt)
         }
     },
-    resolve(source, args) {
-        return models.Categoria
-            .findByPk(args.id)
-            .then((categoria) => {
-                return categoria.update({ ativado: false });
-            });
+    async resolve(source, args, { req }) {
+        if (await auth(req)) {
+            return models.Categoria
+                .findByPk(args.id)
+                .then((categoria) => {
+                    return categoria.update({ ativado: false });
+                });
+        } else {
+            throw new Error("Não foi aceito a sua requisição, por favor, logue novamente")
+        }
     }
 };

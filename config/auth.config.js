@@ -4,4 +4,4 @@ function retornarSecretKey() {
     return secretKey;
 }
 
-module.exports = retornarSecretKey();
+module.exports = retornarSecretKey;

@@ -29,7 +29,7 @@ module.exports = {
             type: GraphQLInt,
         },
     },
-    resolve(root, args) {
+    resolve(root, args, req) {
         const offset = args.offset || 0;
         const limit = args.first || 10;
 

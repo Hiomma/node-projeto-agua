@@ -19,14 +19,12 @@ app.use("/api", loginController())
 app.use("/api", multer.array('image'), imagemController())
 
 app.use('/graphql',
-    auth,
-    express_graphql({ schema: Schema, pretty: true, graphiql: false }))
-
-app.use('/graphql1',
-    // auth,
-    express_graphql({ schema: Schema, pretty: true, graphiql: false }))
-
-
+    (req, res) => {
+        express_graphql({
+            schema: Schema, pretty: true, graphiql: true,
+            context: { req }
+        })(req, res)
+    });
 
 app.listen(process.env.PORT || 3001, () => {
     console.log("Servidor está na porta 3001!");
