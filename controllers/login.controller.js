@@ -17,14 +17,15 @@ function loginController() {
         models.Usuario.findOne({
             where: { email: req.body.email }
         }).then(async data => {
+            console.log(data.dataValues);
             if (!data) {
                 res.status(401).json({ message: "Login e senha errados!" })
             } else {
-                if (md5(req.body.password) == data.password) {
-                    jwt.sign({ user: data.email }, retornarSecretKey, { expiresIn: '24h' }, (err, token) => {
+                if (md5(req.body.password) == data.dataValues.password) {
+                    jwt.sign({ user: data.dataValues.email }, retornarSecretKey(), { expiresIn: '24h' }, (err, token) => {
                         res.json({
-                            id: data.id,
-                            user: data.email,
+                            id: data.dataValues.id,
+                            user: data.dataValues.email,
                             token: token
                         })
                     });

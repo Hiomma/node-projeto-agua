@@ -6,11 +6,9 @@ const {
 } = require('graphql');
 
 module.exports = new GraphQLInputObjectType({
-    name: 'SlideInput',
+    name: 'PosicaoInput',
     fields: () => ({
         nome: { type: GraphQLNonNull(GraphQLString) },
-        url: { type: GraphQLNonNull(GraphQLString) },
-        descricao: { type: GraphQLNonNull(GraphQLString) },
         ativado: { type: GraphQLNonNull(GraphQLBoolean) },
     })
 });
