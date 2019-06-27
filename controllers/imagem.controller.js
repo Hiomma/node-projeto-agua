@@ -15,8 +15,8 @@ function imagemController() {
     async function uploadImagem(req, res) {
         if (req.files.length > 0) {
             await models.Imagem.findAll({ raw: true, where: { noticia_id: req.params.id } }).then(data => {
-                for(let aux of data){
-                    fs.unlink(aux.url, () => {})
+                for (let aux of data) {
+                    fs.unlink(aux.url, () => { })
                 }
             })
 
@@ -32,17 +32,14 @@ function imagemController() {
             return res.send(req.files);
         }
 
-
-
         return res.status(500).send('Houve erro no upload!');
     }
-    ASDKJASKLDJLAKSDJ TO TERMINANDO A IMAGEM DO SLIDE
 
     async function uploadSlideImagem(req, res) {
         if (req.files.length > 0) {
             await models.Slide.findAll({ raw: true, where: { noticia_id: req.params.id } }).then(data => {
-                for(let aux of data){
-                    fs.unlink(aux.url, () => {})
+                for (let aux of data) {
+                    fs.unlink(aux.url, () => { })
                 }
             })
 
@@ -57,8 +54,6 @@ function imagemController() {
 
             return res.send(req.files);
         }
-
-
 
         return res.status(500).send('Houve erro no upload!');
     }

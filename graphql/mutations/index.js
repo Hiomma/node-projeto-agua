@@ -10,6 +10,9 @@ const updateCategoria = require("./categoria/update")
 const createSlide = require("./slide/create")
 const deleteSlide = require("./slide/delete")
 const updateSlide = require("./slide/update")
+const createEmpresa = require("./empresa/create")
+const deleteEmpresa = require("./empresa/delete")
+const updateEmpresa = require("./empresa/update")
 
 module.exports = {
     createNoticia,
@@ -24,4 +27,7 @@ module.exports = {
     createSlide,
     deleteSlide,
     updateSlide,
+    createEmpresa,
+    deleteEmpresa,
+    updateEmpresa,
 };

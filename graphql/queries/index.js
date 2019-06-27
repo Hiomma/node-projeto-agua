@@ -6,6 +6,8 @@ const posicao = require("./posicao/posicao");
 const posicoes = require("./posicao/posicoes");
 const slide = require("./slide/slide");
 const slides = require("./slide/slides");
+const empresa = require("./empresa/empresa");
+const empresas = require("./empresa/empresas");
 
 module.exports = {
     noticia,
@@ -15,5 +17,7 @@ module.exports = {
     categoria,
     categorias,
     slide,
-    slides
+    slides,
+    empresa,
+    empresas
 };
