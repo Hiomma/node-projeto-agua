@@ -21,6 +21,10 @@ module.exports = {
             type: GraphQLBoolean,
             description: "Caso TRUE, retornará apenas os ativadaos, caso FALSE, retornará os não ativados, vazio retornará todos"
         },
+        destaque: {
+            type: GraphQLBoolean,
+            description: "Caso TRUE, retornará apenas os destacados, caso FALSE, retornará os não destacados, vazio retornará todos"
+        },
         first: {
             type: GraphQLInt,
             description: 'Limita o retorno de itens. Padrão: 10',
@@ -44,6 +48,10 @@ module.exports = {
 
             if (aux.ativado == true || aux.ativado == false) {
                 args.ativado = aux.ativado;
+            }
+
+            if (aux.destaque == true || aux.destaque == false) {
+                args.destaque = aux.destaque;
             }
         }
 
