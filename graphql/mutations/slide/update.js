@@ -3,27 +3,27 @@ const {
     GraphQLNonNull,
 } = require('graphql');
 const models = require('../../../models/index.js');
-const Posicao = require('../../types/posicao');
-const PosicaoInput = require("../../inputs/posicao.js");
+const Slide = require('../../types/slide');
+const SlideInput = require("../../inputs/slide.js");
 
 const auth = require("../../../services/auth.graphql");
 
 module.exports = {
-    type: Posicao,
+    type: Slide,
     args: {
         id: {
             type: new GraphQLNonNull(GraphQLInt)
         },
-        posicao: {
-            type: new GraphQLNonNull(PosicaoInput)
+        slide: {
+            type: new GraphQLNonNull(SlideInput)
         }
     },
     async resolve(source, args, {req}) {
         if (await auth(req)) {
-            return models.Posicao
+            return models.Slide
                 .findByPk(args.id)
-                .then((posicao) => {
-                    return posicao.update(args.posicao);
+                .then((slide) => {
+                    return slide.update(args.slide);
                 });
         } else {
             throw new Error("Não foi aceito a sua requisição, por favor, logue novamente")
