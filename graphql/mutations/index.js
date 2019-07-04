@@ -13,6 +13,9 @@ const updateSlide = require("./slide/update")
 const createEmpresa = require("./empresa/create")
 const deleteEmpresa = require("./empresa/delete")
 const updateEmpresa = require("./empresa/update")
+const createVideo = require("./video/create")
+const deleteVideo = require("./video/delete")
+const updateVideo = require("./video/update")
 
 module.exports = {
     createNoticia,
@@ -30,4 +33,7 @@ module.exports = {
     createEmpresa,
     deleteEmpresa,
     updateEmpresa,
+    createVideo,
+    deleteVideo,
+    updateVideo,
 };

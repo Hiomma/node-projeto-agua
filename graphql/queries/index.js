@@ -8,6 +8,8 @@ const slide = require("./slide/slide");
 const slides = require("./slide/slides");
 const empresa = require("./empresa/empresa");
 const empresas = require("./empresa/empresas");
+const video = require("./video/video");
+const videos = require("./video/videos");
 
 module.exports = {
     noticia,
@@ -19,5 +21,7 @@ module.exports = {
     slide,
     slides,
     empresa,
-    empresas
+    empresas,
+    video,
+    videos
 };
