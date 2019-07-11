@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     const Noticia = sequelize.define('Noticia', {
         titulo: DataTypes.STRING,
         manchete: DataTypes.STRING,
-        texto: DataTypes.STRING,
+        texto: DataTypes.TEXT,
         imagem: DataTypes.STRING,
         url: DataTypes.STRING,
         ativado: DataTypes.BOOLEAN

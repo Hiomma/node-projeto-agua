@@ -1,19 +1,19 @@
 const {
     GraphQLID,
-    GraphQLNonNull,
+    GraphQLNonNull
 } = require('graphql');
 
 const models = require('../../../models/index.js');
-const Empresa = require('../../types/empresa.js');
+const Depoimento = require('../../types/depoimento.js');
 
 module.exports = {
-    type: Empresa,
+    type: Depoimento,
     args: {
         id: {
             type: new GraphQLNonNull(GraphQLID)
         }
     },
     resolve(root, args) {
-        return models.Empresa.findByPk(args.id);
+        return models.Depoimento.findByPk(args.id);
     }
 };

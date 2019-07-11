@@ -5,10 +5,10 @@ const {
 } = require('graphql');
 
 const models = require('../../../models/index.js');
-const Noticia = require('../../types/noticia.js');
+const Produto = require('../../types/produto.js');
 
 module.exports = {
-    type: Noticia,
+    type: Produto,
     args: {
         id: {
             type: GraphQLID
@@ -19,9 +19,9 @@ module.exports = {
     },
     resolve(root, args) {
         if (args.url) {
-            return models.Noticia.findOne({ where: { url: args.url } })
+            return models.Produto.findOne({ where: { url: args.url } })
         } else if (args.id) {
-            return models.Noticia.findByPk(args.id);
+            return models.Produto.findByPk(args.id);
         } else {
             return null
         }

@@ -1,6 +1,9 @@
 const createNoticia = require("./noticia/create")
 const deleteNoticia = require("./noticia/delete")
 const updateNoticia = require("./noticia/update")
+const createProduto = require("./produto/create")
+const deleteProduto = require("./produto/delete")
+const updateProduto = require("./produto/update")
 const createPosicao = require("./posicao/create")
 const deletePosicao = require("./posicao/delete")
 const updatePosicao = require("./posicao/update")
@@ -16,11 +19,17 @@ const updateEmpresa = require("./empresa/update")
 const createVideo = require("./video/create")
 const deleteVideo = require("./video/delete")
 const updateVideo = require("./video/update")
+const createDepoimento = require("./depoimento/create")
+const deleteDepoimento = require("./depoimento/delete")
+const updateDepoimento = require("./depoimento/update")
 
 module.exports = {
     createNoticia,
     deleteNoticia,
     updateNoticia,
+    createProduto,
+    deleteProduto,
+    updateProduto,
     createPosicao,
     deletePosicao,
     updatePosicao,
@@ -36,4 +45,7 @@ module.exports = {
     createVideo,
     deleteVideo,
     updateVideo,
+    createDepoimento,
+    deleteDepoimento,
+    updateDepoimento,
 };

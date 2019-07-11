@@ -3,11 +3,13 @@ const {
     GraphQLString,
     GraphQLBoolean,
     GraphQLID,
+    GraphQLList,
     GraphQLInt
 } = require('graphql');
 
 const Posicao = require("../types/posicao");
 const Categoria = require("../types/categoria")
+const Imagens = require("../types/imagens");
 
 const models = require("../../models");
 
@@ -56,6 +58,13 @@ module.exports = new GraphQLObjectType({
                 description: "URL da Imagem no servidor",
                 resolve(noticia) {
                     return noticia.imagem;
+                }
+            },
+            imagens: {
+                type: new GraphQLList(Imagens),
+                description: "Objeto de Imagens das Noticias",
+                async resolve(noticia) {
+                    return models.Imagem.findAll({ where: { noticia_id: noticia.id } });
                 }
             },
             ativado: {
