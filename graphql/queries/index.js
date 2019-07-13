@@ -4,6 +4,8 @@ const produto = require("./produto/produto");
 const produtos = require("./produto/produtos");
 const categoria = require("./categoria/categoria");
 const categorias = require("./categoria/categorias");
+const categoria_produto = require("./categoria-produto/categoria-produto");
+const categorias_produto = require("./categoria-produto/categorias-produto");
 const posicao = require("./posicao/posicao");
 const posicoes = require("./posicao/posicoes");
 const slide = require("./slide/slide");
@@ -22,6 +24,8 @@ module.exports = {
     posicoes,
     categoria,
     categorias,
+    categoria_produto,
+    categorias_produto,
     slide,
     slides,
     empresa,

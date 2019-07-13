@@ -46,6 +46,13 @@ module.exports = new GraphQLObjectType({
                     return produto.texto;
                 }
             },
+            tabela: {
+                type: GraphQLString,
+                description: "URL da Tabela no servidor",
+                resolve(produto) {
+                    return produto.tabela;
+                }
+            },
             imagem: {
                 type: GraphQLString,
                 description: "URL da Imagem no servidor",
@@ -58,6 +65,13 @@ module.exports = new GraphQLObjectType({
                 description: "Objeto de Imagens das Produtos",
                 async resolve(produto) {
                     return models.ImagemProduto.findAll({ where: { produto_id: produto.id } });
+                }
+            },
+            categoria: {
+                type: Categoria,
+                description: "Categoria dos Produtos",
+                resolve(produto) {
+                    return models.CategoriaProduto.findByPk(produto.categoria_id);
                 }
             },
             ativado: {

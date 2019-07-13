@@ -10,6 +10,9 @@ const updatePosicao = require("./posicao/update")
 const createCategoria = require("./categoria/create")
 const deleteCategoria = require("./categoria/delete")
 const updateCategoria = require("./categoria/update")
+const createCategoriaProduto = require("./categoria-produto/create")
+const deleteCategoriaProduto = require("./categoria-produto/delete")
+const updateCategoriaProduto = require("./categoria-produto/update")
 const createSlide = require("./slide/create")
 const deleteSlide = require("./slide/delete")
 const updateSlide = require("./slide/update")
@@ -36,6 +39,9 @@ module.exports = {
     createCategoria,
     deleteCategoria,
     updateCategoria,
+    createCategoriaProduto,
+    deleteCategoriaProduto,
+    updateCategoriaProduto,
     createSlide,
     deleteSlide,
     updateSlide,

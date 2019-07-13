@@ -8,10 +8,10 @@ const {
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 const models = require('../../../models/index.js');
-const Produto = require('../../types/produto.js');
+const CategoriaProduto = require('../../types/categoria-produto.js');
 
 module.exports = {
-    type: new GraphQLList(Produto),
+    type: new GraphQLList(CategoriaProduto),
     args: {
         filter: {
             type: GraphQLString,
@@ -23,25 +23,22 @@ module.exports = {
         },
         first: {
             type: GraphQLInt,
-            description: 'Limita o retorno de itens. Padrão: 100',
+            description: 'Limita o retorno de itens. Padrão: 10',
         },
         offset: {
             type: GraphQLInt,
         },
     },
-    resolve(root, args, req) {
+    resolve(root, args) {
         const offset = args.offset || 0;
-        const limit = args.first || 100;
+        const limit = args.first || 10;
 
         if (args.filter) {
             let aux = args;
 
             args = {
-                [Op.or]: {
-                    titulo: { [Op.like]: "%" + args.filter + "%" },
-                    manchete: { [Op.like]: "%" + args.filter + "%" },
-                    texto: { [Op.like]: "%" + args.filter + "%" },
-                    url: { [Op.like]: "%" + args.filter + "%" },
+                nome: {
+                    [Op.like]: "%" + args.filter + "%"
                 }
             }
 
@@ -51,8 +48,8 @@ module.exports = {
         }
 
         delete args.offset;
-        delete args.first;
         delete args.filter;
-        return models.Produto.findAll({ where: args, offset, limit }).catch((error) => console.log(error));
+        delete args.first;
+        return models.CategoriaProduto.findAll({ where: args, offset, limit });
     }
 };

@@ -17,8 +17,18 @@ module.exports = {
             texto: {
                 type: Sequelize.TEXT
             },
+            tabela: {
+                type: Sequelize.STRING
+            },
             video: {
                 type: Sequelize.STRING
+            },
+            categoria_id: {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: "categorias-produto",
+                    key: "id"
+                }
             },
             ativado: {
                 type: Sequelize.BOOLEAN
