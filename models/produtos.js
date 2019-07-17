@@ -9,7 +9,9 @@ module.exports = (sequelize, DataTypes) => {
         ativado: DataTypes.BOOLEAN
     }, { tableName: "produtos" });
     Produtos.associate = function (models) {
-        // associations can be defined here
+        Produtos.belongsTo(models.CategoriaProduto, {
+            foreignKey: "categoria_id"
+        });
     };
     return Produtos;
 };

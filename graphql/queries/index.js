@@ -16,6 +16,8 @@ const video = require("./video/video");
 const videos = require("./video/videos");
 const depoimento = require("./depoimento/depoimento");
 const depoimentos = require("./depoimento/depoimentos");
+const mensagem = require("./mensagem/mensagem");
+const mensagens = require("./mensagem/mensagens");
 
 module.exports = {
     noticia,
@@ -34,6 +36,8 @@ module.exports = {
     videos,
     depoimento,
     depoimentos,
+    mensagem,
+    mensagens,
     produto,
     produtos
 };

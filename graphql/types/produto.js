@@ -7,8 +7,7 @@ const {
     GraphQLInt
 } = require('graphql');
 
-const Posicao = require("./posicao");
-const Categoria = require("./categoria")
+const CategoriaProduto = require("./categoria-produto")
 const Imagens = require("./imagens");
 
 const models = require("../../models");
@@ -68,9 +67,10 @@ module.exports = new GraphQLObjectType({
                 }
             },
             categoria: {
-                type: Categoria,
+                type: CategoriaProduto,
                 description: "Categoria dos Produtos",
                 resolve(produto) {
+                    console.log(produto)
                     return models.CategoriaProduto.findByPk(produto.categoria_id);
                 }
             },

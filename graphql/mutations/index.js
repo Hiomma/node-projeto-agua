@@ -22,6 +22,9 @@ const updateEmpresa = require("./empresa/update")
 const createVideo = require("./video/create")
 const deleteVideo = require("./video/delete")
 const updateVideo = require("./video/update")
+const createMensagem = require("./mensagem/create")
+const deleteMensagem = require("./mensagem/delete")
+const updateMensagem = require("./mensagem/update")
 const createDepoimento = require("./depoimento/create")
 const deleteDepoimento = require("./depoimento/delete")
 const updateDepoimento = require("./depoimento/update")
@@ -54,4 +57,7 @@ module.exports = {
     createDepoimento,
     deleteDepoimento,
     updateDepoimento,
+    createMensagem,
+    deleteMensagem,
+    updateMensagem,
 };
