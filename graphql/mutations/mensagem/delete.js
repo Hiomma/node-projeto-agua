@@ -19,7 +19,7 @@ module.exports = {
             return models.Mensagem
                 .findByPk(args.id)
                 .then((mensagem) => {
-                    return mensagem.update({ ativado: false });
+                    return mensagem.destroy();
                 });
         } else {
             throw new Error("Não foi aceito a sua requisição, por favor, logue novamente")

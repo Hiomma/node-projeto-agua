@@ -37,11 +37,8 @@ module.exports = {
             let aux = args;
 
             args = {
-                [Op.or]: {
-                    titulo: { [Op.like]: "%" + args.filter + "%" },
-                    manchete: { [Op.like]: "%" + args.filter + "%" },
-                    texto: { [Op.like]: "%" + args.filter + "%" },
-                    url: { [Op.like]: "%" + args.filter + "%" },
+                nome: {
+                    [Op.like]: "%" + args.filter + "%"
                 }
             }
 
@@ -51,8 +48,8 @@ module.exports = {
         }
 
         delete args.offset;
-        delete args.first;
         delete args.filter;
-        return models.Produto.findAll({ where: args, offset, limit }).catch((error) => console.log(error));
+        delete args.first;
+        return models.Produto.findAll({ where: args, offset, limit });
     }
 };
