@@ -2,7 +2,7 @@
     "development": {
         "username": "root",
         "password": null,
-        "database": "cimef",
+        "database": "projeto_agua",
         "host": "127.0.0.1",
         "dialect": "mysql"
     },
