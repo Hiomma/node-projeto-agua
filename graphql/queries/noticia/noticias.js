@@ -53,6 +53,6 @@ module.exports = {
         delete args.offset;
         delete args.first;
         delete args.filter;
-        return models.Noticia.findAll({ where: args, offset, limit }).catch((error) => console.log(error));
+        return models.Noticia.findAll({ where: args, offset, limit, order: [["createdAt", "DESC"]] }).catch((error) => console.log(error));
     }
 };
