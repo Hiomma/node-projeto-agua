@@ -26,6 +26,6 @@ app.use('/graphql',
         })(req, res)
     });
 
-app.listen(process.env.PORT || 3001, () => {
-    console.log("Servidor está na porta 3001!");
+app.listen(process.env.PORT || 4001, () => {
+    console.log("Servidor está na porta 4001!");
 })
